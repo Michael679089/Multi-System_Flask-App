@@ -10,7 +10,7 @@
        <h1>Convert a Pint into a Gill, Quart or a Gallon</h1>
        <form action="/PintConverter" method="POST">
            <label for="user_input_pint">Number of Pints</label>
-           <input type="number" name="user_input_pint" id="user_input_pint" value='0' min="0" placeholder="input value amount">
+           <input type="number" name="user_input_pint" id="user_input_pint" value="{{ request.form.get('user_input_pint') }}" min="0" placeholder="input value amount">
 
             <select name="options" id="options">
                <option value="Gill">Gill</option>

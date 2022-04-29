@@ -9,7 +9,11 @@
     width: 100%;
 }
 
+input,select {
+    outline: 1px solid rgba(165, 165, 165, 0.5)
+}
 
+/* MENU LIST */
 .menu-list > li {
     margin: 10px;
     padding: 1em;

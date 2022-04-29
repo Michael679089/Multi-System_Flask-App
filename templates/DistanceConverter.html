@@ -7,11 +7,11 @@
 <!-- BODY -->
 {% block body %}
     <div>
-       <h1>This is the Mile Conversion Station.</h1>
-       <form action="/DistanceConverter" method="POST">
+       <h1 class="text-center py-1">This is the Mile Conversion Station.</h1>
+       <form action="/DistanceConverter" method="POST" class="grid grid-cols-2">
            <div>
                <p>From: </p>
-               <select name="input_distance" id="what_distance">
+               <select class="border" name="input_distance" id="what_distance">
                    <option value="Kilometer">Kilometer</option>
                    <option value="Centimeter">Centimeter</option>
                    <option value="Inch">Inch</option>
@@ -31,11 +31,17 @@
                    <option value="Foot">Foot</option>
                </select>
            </div>
-            <input type="submit" value="Submit Data">           
+            <input type="submit" value="Submit" class="mx-10 my-2 rounded col-span-2">           
        </form>
-       <p> Input Distance Chosen: {{ request.form['input_distance'] }}</p>
-       <p> Your input: {{ request.form['user_input'] }}</p>
-       <p> Distance Chosen: {{ request.form['what_distance'] }}</p>
-       <p> Converted Distance: {{ convertedDistance }}</p>
+       <div class="grid grid-cols-2 border border-black mx-10 p-2">
+           <div class="">
+               <p> Input Distance Chosen: {{ request.form['input_distance'] }}</p>
+               <p> Your input: {{ request.form['user_input'] }}</p>
+           </div>
+           <div>
+               <p> Distance Chosen: {{ request.form['what_distance'] }}</p>
+               <p> Converted Distance: {{ convertedDistance }}</p>
+           </div>
+       </div>
     </div>
 {% endblock %}

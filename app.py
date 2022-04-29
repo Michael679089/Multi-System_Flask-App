@@ -259,8 +259,11 @@ def DoubleSquare_and_HalfANumber():
     converted_input = 0
 
     if (request.method == 'POST'):
-        user_input = int(request.form.get('user_input'))
-        options = request.form.get('options')
+        try:
+            user_input = int(request.form.get('user_input'))
+            options = request.form.get('options')
+        except ValueError:
+            user_input = 0
 
         if (options == "Double"):
             converted_input = user_input * 2
@@ -286,9 +289,12 @@ def PintConverter():
     }
 
     if request.method == 'POST':
-        user_input_pint = int(request.form.get('user_input_pint'))
-        options = request.form.get('options')
-        converted_input = 0
+        try:
+            user_input_pint = int(request.form.get('user_input_pint'))
+            options = request.form.get('options')
+            converted_input = 0
+        except ValueError:
+            user_input_pint = 0
 
         if (options == 'Gill'):
             converted_input = user_input_pint * PintTo["Gills"]
@@ -301,12 +307,20 @@ def PintConverter():
 
 @app.route('/PoundsToGrams', methods=['POST', 'GET'])
 def PoundsToGrams():
-    user_input_pounds = request.form.get('user_input_pounds')
+    user_input_pounds = 0
     converted_output = 0
+    user_input_pounds = 0
 
     if request.method == 'POST':
-        converted_output = float(user_input_pounds) * 453.592
-        converted_output = round(converted_output, 4)
+        user_input_pounds = request.form.get('user_input_pounds')
+
+        try:
+            converted_output = float(user_input_pounds) * 453.592
+            converted_output = round(converted_output, 4)
+        except ValueError:
+            converted_output = 0
+
+
 
     return render_template('PoundsToGrams.html', converted_output = converted_output)
     
