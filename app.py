@@ -8,8 +8,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/distance_converter', methods=['POST', 'GET'])
-def distance_converter():
+@app.route('/DistanceConverter', methods=['POST', 'GET'])
+def DistanceConverter():
     # Conversion of Distance Functions
     Mi = [  # 0 - km, 1 - cm, 2 - foot, 3 - in
         1.609344,
@@ -254,7 +254,6 @@ def distance_converter():
 
 @app.route('/DoubleSquare_and_HalfANumber', methods=['POST', 'GET']) 
 def DoubleSquare_and_HalfANumber():
-
     user_input = 0
     options = " "
     converted_input = 0
@@ -302,12 +301,12 @@ def PintConverter():
 
 @app.route('/PoundsToGrams', methods=['POST', 'GET'])
 def PoundsToGrams():
-    print(int(request.form.get('user_input_pounds')))
-    user_input_pounds = float(request.form.get('user_input_pounds'))
+    user_input_pounds = request.form.get('user_input_pounds')
     converted_output = 0
 
     if request.method == 'POST':
-        converted_output = user_input_pounds * 453.592
+        converted_output = float(user_input_pounds) * 453.592
+        converted_output = round(converted_output, 4)
 
     return render_template('PoundsToGrams.html', converted_output = converted_output)
     

@@ -1,3 +1,25 @@
-.body {
-    background-color: black !important;
+.converters > div > div {
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 100%;
+}
+
+
+.menu-list > li {
+    margin: 10px;
+    padding: 1em;
+    border-radius: 5px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-list > li {
+        padding: 0em;
+        text-align: center;
+    }
 }

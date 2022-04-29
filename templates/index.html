@@ -7,17 +7,25 @@
 <!-- BODY -->
 {% block body %}
     <div class="m-2 text-center text-2xl">
-        <h1>Welcome to my Multi-converter app</h1>
-
-        <div class="converters grid grid-cols-3 gap-3 my-10 mx-1">
-            <div class="bg-slate-200">
-                hello
+        <h1>Welcome to my Multi-Computational Converter Flask App</h1>
+        
+        <div class="converters my-10 mx-1 text-lg">
+            <h1> Here are my lists of Computational Converters</h1>
+            <hr class="mx-10 my-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-slate-200">
+                    <a href="/DistanceConverter">Distance Converter</a>
+                </div>
+                <div class="bg-slate-200">
+                    <a href="/DoubleSquare_and_HalfANumber">Double, Square or Half a Number!</a>
+                </div>
+                <div class="bg-slate-200">
+                    <a href="/PintConverter">Pints to Gill, Quart or a Gallon</a>
+                </div>
+                <div class="bg-slate-200">
+                    <a href="/PoundsToGrams">Pounds To Grams</a>
+                </div>
             </div>
-
-            <div class="bg-slate-200">Hi</div>
-            <div class="bg-slate-200">Yo</div>
-            <div class="bg-slate-200">Sup</div>
-            
         </div>
     </div>
 {% endblock %}
