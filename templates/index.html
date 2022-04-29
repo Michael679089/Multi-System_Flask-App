@@ -2,22 +2,22 @@
 
 <!-- HEAD -->
 {% block head %}
-
+    <title>Computational Converters</title>
 {% endblock %}
 <!-- BODY -->
 {% block body %}
-    <div>
+    <div class="m-2 text-center text-2xl">
         <h1>Welcome to my Multi-converter app</h1>
 
-        <p><b>List of Activities:</b></p>
+        <div class="converters grid grid-cols-3 gap-3 my-10 mx-1">
+            <div class="bg-slate-200">
+                hello
+            </div>
 
-        <div>
-            <a href="{{ url_for('distance_Convert') }}">Mile to kilometers, centimeters, inches, and feet Converter</a>
+            <div class="bg-slate-200">Hi</div>
+            <div class="bg-slate-200">Yo</div>
+            <div class="bg-slate-200">Sup</div>
+            
         </div>
-        <div>
-            <a href="{{ url_for('distance_Convert') }}">Centimeter to Inches or Feet Converter</a>
-        </div>
-
-        
     </div>
 {% endblock %}

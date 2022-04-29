@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, url_for, request, redirect
 
 # Setting up the Application
 app = Flask(__name__)
@@ -197,7 +197,6 @@ def distance_converter():
     what_distance = " "
     convertedDistance = 0
 
-
     if request.method == 'POST':
         user_input = request.form.get("user_input")
         input_distance = request.form.get("input_distance")
@@ -251,11 +250,68 @@ def distance_converter():
         if (input_distance == what_distance):
             convertedDistance = user_input
         
-        return render_template('distance_converter.html', convertedDistance=convertedDistance)
-    else:
-        return render_template('distance_converter.html', convertedDistance=convertedDistance)
+    return render_template('DistanceConverter.html', convertedDistance=convertedDistance)
+
+@app.route('/DoubleSquare_and_HalfANumber', methods=['POST', 'GET']) 
+def DoubleSquare_and_HalfANumber():
+
+    user_input = 0
+    options = " "
+    converted_input = 0
+
+    if (request.method == 'POST'):
+        user_input = int(request.form.get('user_input'))
+        options = request.form.get('options')
+
+        if (options == "Double"):
+            converted_input = user_input * 2
+        elif (options == "Square"):
+            converted_input = user_input ** 2
+        elif (options == "Half"):
+            converted_input = user_input / 2
+        else:
+            print("ERROR")
+
+    return render_template('DoubleSquare_and_HalfANumber.html', converted_input = converted_input)
     
+@app.route('/PintConverter', methods=['POST', 'GET'])
+def PintConverter():
+    user_input_pint = 0
+    options = " "
+    converted_input = 0
+
+    PintTo = {
+        "Gills" : 4,
+        "Quarts" : 0.5,
+        "Gallons" : 0.125
+    }
+
+    if request.method == 'POST':
+        user_input_pint = int(request.form.get('user_input_pint'))
+        options = request.form.get('options')
+        converted_input = 0
+
+        if (options == 'Gill'):
+            converted_input = user_input_pint * PintTo["Gills"]
+        elif (options == 'Quart'):
+            converted_input = user_input_pint * PintTo["Quarts"]
+        elif (options == 'Gallon'):
+            converted_input = user_input_pint * PintTo["Gallons"]
+
+    return render_template('PintConverter.html', converted_input = converted_input)
+
+@app.route('/PoundsToGrams', methods=['POST', 'GET'])
+def PoundsToGrams():
+    print(int(request.form.get('user_input_pounds')))
+    user_input_pounds = float(request.form.get('user_input_pounds'))
+    converted_output = 0
+
+    if request.method == 'POST':
+        converted_output = user_input_pounds * 453.592
+
+    return render_template('PoundsToGrams.html', converted_output = converted_output)
     
+
 # Debug and Run
 if __name__ == '__main__':
     app.run(debug=True)
