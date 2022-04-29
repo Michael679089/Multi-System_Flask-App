@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!-- HEAD -->
+{% block head %}
+
+{% endblock %}
+<!-- BODY -->
+{% block body %}
+    <div>
+        <h1>Welcome to my Multi-converter app</h1>
+
+        <p><b>List of Activities:</b></p>
+
+        <div>
+            <a href="{{ url_for('distance_Convert') }}">Mile to kilometers, centimeters, inches, and feet Converter</a>
+        </div>
+        <div>
+            <a href="{{ url_for('distance_Convert') }}">Centimeter to Inches or Feet Converter</a>
+        </div>
+
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!-- HEAD -->
+{% block head %}
+
+{% endblock %}
+<!-- BODY -->
+{% block body %}
+    <div>
+       <h1>This is the Mile Conversion Station.</h1>
+       <form action="/distance_converter" method="POST">
+           <div>
+               <p>From: </p>
+               <select name="input_distance" id="what_distance">
+                   <option value="Kilometer">Kilometer</option>
+                   <option value="Centimeter">Centimeter</option>
+                   <option value="Inch">Inch</option>
+                   <option value="Mile">Mile</option>
+                   <option value="Foot">Foot</option>
+                </select>
+                <input type="number" id="user_input" name="user_input" placeholder="input amount" value="0" min="0">
+           </div>
+
+           <div>
+               <p>To: </p>
+               <select name="what_distance" id="what_distance">
+                   <option value="Kilometer">Kilometer</option>
+                   <option value="Centimeter">Centimeter</option>
+                   <option value="Inch">Inch</option>
+                   <option value="Mile">Mile</option>
+                   <option value="Foot">Foot</option>
+               </select>
+           </div>
+            <input type="submit" value="Submit Data">           
+       </form>
+       <p> Input Distance Chosen: {{ request.form['input_distance'] }}</p>
+       <p> Your input: {{ request.form['user_input'] }}</p>
+       <p> Distance Chosen: {{ request.form['what_distance'] }}</p>
+       <p> Converted Distance: {{ convertedDistance }}</p>
+    </div>
+{% endblock %}
